@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public void SceneChange_Main()
+    {
+        //쿠폰 박스 씬으로 이동
+        SceneManager.LoadScene("00_MainScene");
+    }
     public void SceneChange_coupon()
     {
         //쿠폰 박스 씬으로 이동
