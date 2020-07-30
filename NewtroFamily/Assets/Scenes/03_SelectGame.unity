@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 724264814}
   - component: {fileID: 724264813}
   - component: {fileID: 724264812}
+  - component: {fileID: 724264815}
   m_Layer: 5
   m_Name: game3_btn
   m_TagString: Untagged
@@ -337,7 +338,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 724264813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2137970740}
+        m_MethodName: Game3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &724264813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24f39b897b72ac0418bd5de376b900ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666576281f0b8e14a8b3f81acffc4147, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -373,6 +385,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724264810}
   m_CullTransparentMesh: 0
+--- !u!61 &724264815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724264810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &762334384
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,11 +484,22 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 762334387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2137970739}
+        m_MethodName: SceneChange_game3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &762334387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d98d9b5fa815034429194a6e3a679533, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72ffc2cbb4b70564eaebda8b820efeb6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -498,6 +547,7 @@ GameObject:
   - component: {fileID: 840021644}
   - component: {fileID: 840021643}
   - component: {fileID: 840021642}
+  - component: {fileID: 840021645}
   m_Layer: 5
   m_Name: game1_btn
   m_TagString: Untagged
@@ -563,7 +613,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 840021643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2137970740}
+        m_MethodName: Game1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &840021643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e1af460f2d9edb4e9195f2dbad6a453, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d28f42c887a8e0b4ca4afcd753c21c29, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -599,6 +660,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840021640}
   m_CullTransparentMesh: 0
+--- !u!61 &840021645
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840021640}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1355023384
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +738,7 @@ GameObject:
   - component: {fileID: 1627172805}
   - component: {fileID: 1627172804}
   - component: {fileID: 1627172803}
+  - component: {fileID: 1627172806}
   m_Layer: 5
   m_Name: game2_btn
   m_TagString: Untagged
@@ -716,7 +804,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1627172804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2137970740}
+        m_MethodName: Game2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1627172804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,7 +834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7bd0bf9c4a0b5024aabd2e924c0abd93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 381a0ab05bce87b41be771210e36d7d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -752,6 +851,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627172801}
   m_CullTransparentMesh: 0
+--- !u!61 &1627172806
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627172801}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1826851944
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4ccb08305199024f838356a134a2b38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: febfd373bf0495d4492dd34b370a1b58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -901,7 +1026,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2050598304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2137970739}
+        m_MethodName: SceneChange_selectplayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2050598304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,7 +1056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2dba4f5bfb3516143a93e4c3df640296, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd9175e471158ba4d92f851d59639b3a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -950,6 +1086,7 @@ GameObject:
   - component: {fileID: 2137970736}
   - component: {fileID: 2137970735}
   - component: {fileID: 2137970739}
+  - component: {fileID: 2137970740}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1050,3 +1187,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b3e0ece8f2394eae7639628d35654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2137970740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137970734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1cb85ba9151f749a1d1920db47841e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game1_btn: {fileID: 840021642}
+  game2_btn: {fileID: 1627172803}
+  game3_btn: {fileID: 724264812}
+  start_btn: {fileID: 762334386}
+  gamenum:
+  - {fileID: 21300000, guid: cc938c5daf7e36648abc37c281036973, type: 3}
+  - {fileID: 21300000, guid: 8b2c581f0f5dbb64db8874473e258605, type: 3}
+  - {fileID: 21300000, guid: 3d084bc60c5c8d244b90fae959f6436d, type: 3}
+  - {fileID: 21300000, guid: ee2de11e4dbffd246bdc48a12924d7fd, type: 3}
+  gameflow: 000000000000000000000000
+  clear: 0
