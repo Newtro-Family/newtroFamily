@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public static ChangeScene Instance = null;
+
     public void SceneChange_Main()
     {
         //쿠폰 박스 씬으로 이동
@@ -42,5 +44,15 @@ public class ChangeScene : MonoBehaviour
     {
         //플레이어 수 설정 씬으로 이동
         SceneManager.LoadScene("06_Game3");
+    }
+    public void SceneChange_setting()
+    {
+        //setting씬으로 이동
+        SceneManager.LoadScene("07_Setting",LoadSceneMode.Additive);
+    }
+    public void SceneChange_Ready()
+    {
+        //setting씬으로 이동
+        SceneManager.LoadScene("08_GameReady", LoadSceneMode.Additive);
     }
 }
