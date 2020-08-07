@@ -9,21 +9,34 @@ using UnityEngine.SceneManagement;
 public class GameReadyManager : MonoBehaviour
 {
     //리소스 
-    static public Sprite player_call, three,two,one;
+     public Sprite player_call, three,two,one;
 
     //변수
-    private int count = 3;
-    public GameObject player_ready,countdown;
+    public float timer = 0;
+    public GameObject player_ready, num3, num2, num1;
+    public GameObject countdown;
+    public Sprite[] player_name;
     //private SpriteRenderer renderer;
     int readyNo = 1;
 
     // Start is called before the first frame update
     void Start()
-    { 
-        InvokeRepeating("Countdown",2.0f,1.0f);
+    {
+        num3.SetActive(false);
+        num2.SetActive(false);
+        num1.SetActive(false);
+
+        //InvokeRepeating("Countdown",2.0f,1.0f);
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        if (timer == 0) 
+        {
+            Time.timeScale = 0.0f;
+        }
+    }
+
     public void Playerturn()
     {
 
@@ -43,7 +56,8 @@ public class GameReadyManager : MonoBehaviour
 
     }
 
-    void Countdown()
+
+   /* void Countdown()
     {
         player_ready.SetActive(false);
         countdown.SetActive(true);
@@ -64,16 +78,7 @@ public class GameReadyManager : MonoBehaviour
             countdown.GetComponent<Image>().sprite = Resources.Load("Resources/06Game3/ready" + count) as Sprite;
             count--;
         }
-    }
-
-    void Update()
-    {
-        if(count>=0)
-        {
-            CancelInvoke("Countdown");
-            SceneManager.UnloadSceneAsync("08_GameReady");
-        }
-    }
+    }*/
 
     public void Go_Game()
     {

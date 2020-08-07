@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     public static ChangeScene Instance = null;
+   // static public int stagenum;
+    //public GameObject stagenumObject;
 
     public void SceneChange_Main()
     {
