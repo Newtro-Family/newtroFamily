@@ -6,15 +6,11 @@ using UnityEngine.UI;
 public class SliderTimer : MonoBehaviour
 {
     //타이머 변수
-    public GameObject game_status;
     public Slider timeSlider;
     public Text timerText;
     public float gameTime;
 
-    private bool stopTimer;
-
-    //리소스
-    public Sprite finish_img;
+    public bool stopTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +23,8 @@ public class SliderTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeSlider.enabled = true;
+
         float time = gameTime - Time.time;
 
         int minutes = Mathf.FloorToInt(time / 60);
@@ -37,7 +35,6 @@ public class SliderTimer : MonoBehaviour
         if (time <= 0)
         {
             stopTimer = true;
-            game_status.GetComponent<Image>().sprite = Resources.Load("Resources/06Game3/finish") as Sprite;
         }
 
         if (stopTimer == false)

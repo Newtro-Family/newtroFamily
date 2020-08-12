@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameCountDown : MonoBehaviour
 {
-    public GameObject countDown;
+    public GameObject countDown1;
+
+    //변수
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,8 @@ public class GameCountDown : MonoBehaviour
         float pauseTime = Time.realtimeSinceStartup + 6.0f;
         while(Time.realtimeSinceStartup < pauseTime)
             yield return 0;
-        countDown.gameObject.SetActive(false);
+        countDown1.gameObject.SetActive(false);
+
         Time.timeScale = 1.0f;
     }
 }
