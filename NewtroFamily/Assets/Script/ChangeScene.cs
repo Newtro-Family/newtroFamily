@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-<<<<<<< Updated upstream
     public static ChangeScene Instance = null;
    // static public int stagenum;
     //public GameObject stagenumObject;
@@ -15,8 +14,6 @@ public class ChangeScene : MonoBehaviour
         //쿠폰 박스 씬으로 이동
         SceneManager.LoadScene("00_MainScene");
     }
-=======
->>>>>>> Stashed changes
     public void SceneChange_coupon()
     {
         //쿠폰 박스 씬으로 이동
