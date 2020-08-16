@@ -29,12 +29,14 @@ public class Game3Manager : MonoBehaviour
     StringReader q_stringReader;
     string c_tmp;
 
-    //타이머 변수 
-    public Slider timeSlider;
+    //타이머 변수
+    public Slider timerSlider;
     public Text timerText;
     public float gameTime;
 
-    public bool stopTimer;
+    private float endTime;
+    private bool isTimer = false;
+
 
     //상수
     const string LOCATION = "quiz/";
@@ -43,15 +45,18 @@ public class Game3Manager : MonoBehaviour
     readonly char[] corrects3 = { '1', '4', '3', '2', '7', '5', '6', '8' };
     readonly char[] corrects4 = { '2', '6', '3', '8', '5', '4', '1', '7' };
     readonly WaitForSeconds term = new WaitForSeconds(1f);
-    readonly WaitForSeconds start_term = new WaitForSeconds(1f); //딱지 보여지는 시간
+    readonly WaitForSeconds start_term = new WaitForSeconds(2f); //딱지 보여지는 시간
     readonly WaitForSeconds next_turn = new WaitForSeconds(1.5f); //다음 플레이어 대기 시간 
 
     // Start is called before the first frame update
     void Start()
     {
+        //카운트 초기화
+        count = 0;
+        //타이머 시작 
+        StartTimer(gameTime);
 
         PM = GameObject.Find("playernum").GetComponent<PlayerNumManager>();
-
 
         //플레이어 수 선정
         if (PM.player_num == 1)
@@ -76,11 +81,9 @@ public class Game3Manager : MonoBehaviour
 
         //퀴즈 내용 불러오기
         TextAsset q_file = Resources.Load(LOCATION + q_file_name) as TextAsset;
-        page = 0; //page 초기화
+        //page 초기화
+        page = 0; 
 
-        //타이머 초기화
-        stopTimer = false;
-        timeSlider.value = gameTime;
 
 #if DEV_TEST
         //파일 존재 여부 체크
@@ -92,7 +95,7 @@ public class Game3Manager : MonoBehaviour
 #endif
         q_stringReader = new StringReader(q_file.text);
         SetQuiz();
-        
+        StartCoroutine(Start_Delay());
 
         //정답 설정
         switch (q_file_name)
@@ -118,37 +121,93 @@ public class Game3Manager : MonoBehaviour
                 break;
         }
 
+        //플레이어 턴에 맞게 크기 변경
+        switch (quiz_num)
+        {
+            case 1:
+                player1.transform.localScale = new Vector2(1.25f, 1.18f);
+                break;
+            case 2:
+                player1.transform.localScale = new Vector2(1f, 1f);
+                player2.transform.localScale = new Vector2(1.25f, 1.18f);
+                break;
+            case 3:
+                player2.transform.localScale = new Vector2(1f, 1f);
+                player3.transform.localScale = new Vector2(1.25f, 1.18f);
+                break;
+            case 4:
+                player3.transform.localScale = new Vector2(1f, 1f);
+                player4.transform.localScale = new Vector2(1.25f, 1.18f);
+                break;
+        }
 
-        // 퀴즈 시작 딜레이 
-        StartCoroutine(Start_Delay());
+        // 옵션 초기화
+        t_1.SetActive(true);
+        t_2.SetActive(true);
+        t_3.SetActive(true);
+        t_4.SetActive(true);
+        t_5.SetActive(true);
+        t_6.SetActive(true);
+        t_7.SetActive(true);
+        t_8.SetActive(true);
 
+        for(int i=0;i<8;i++)
+        {
+            Button option = Btns_option[i];
+            Btns_option[i].interactable = true;
+        }
     }
 
     void Update()
     {
-        Timer.SetActive(true);
-        timeSlider.enabled = true;
-
-        float time = gameTime - Time.time;
-
-        int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time - minutes * 60f);
-
-        string textTime = string.Format("{0:0}", seconds);
-
-        if (time <= 0)
+        if (isTimer)
         {
-            stopTimer = true;
-        }
+            float time = endTime - Time.time;
 
-        if (stopTimer == false)
-        {
-            timerText.text = textTime;
-            timeSlider.value = time;
+            if (time <= 0.0f)
+            {
+                UpdateSlider(0.0f);
+                isTimer = false;
+
+                if (p_num == 1)
+                {
+                    p1_count.text = count.ToString();
+                }
+                else if (p_num == 2)
+                {
+                    p2_count.text = count.ToString();
+                }
+                else if (p_num == 3)
+                {
+                    p3_count.text = count.ToString();
+                }
+                else if (p_num == 4)
+                {
+                    p4_count.text = count.ToString();
+                }
+
+                quiz_num++;
+                StartCoroutine(ReadyDelay());
+
+                Invoke("Start", 1f);
+            }
+            else
+                UpdateSlider(time);
         }
     }
 
     //private 함수들 ------------------------------------------------------------------------------
+    private void UpdateSlider(float time)
+    {
+        timerText.text = string.Format("{0:0}", time);
+        timerSlider.value = time;
+    }
+
+    void Wrong_3times()
+    {
+        Invoke("Next_Question", 1f);
+    }
+
     void Next_Question()
     {
         page++;
@@ -178,6 +237,13 @@ public class Game3Manager : MonoBehaviour
     }
 
     //public 함수들 ------------------------------------------------------------------------
+    public void StartTimer(float time)
+    {
+        endTime = Time.time + time;
+        timerSlider.maxValue = time;
+        isTimer = true;
+    }
+
     public void Select(int num)
     {
         Button option = Btns_option[num - 1];
@@ -201,6 +267,7 @@ public class Game3Manager : MonoBehaviour
 
             StartCoroutine(Routine_check(true));
 
+            //모두 다 맞췄을 때
             if (page.Equals(7))
             {
                 if (p_num == 1)
@@ -225,7 +292,7 @@ public class Game3Manager : MonoBehaviour
 
                 Invoke("Start", 1f);
                 quiz_num++;
-                count = 0;
+                //count = 0;
 
             }
             else
@@ -242,6 +309,7 @@ public class Game3Manager : MonoBehaviour
             wrong = true;
 
             StartCoroutine(Routine_check(false));
+            
         }
     }
 
@@ -280,7 +348,7 @@ public class Game3Manager : MonoBehaviour
         }
         else
             check = go_wrong;
-
+            
         check.SetActive(true);
 
         yield return term;
