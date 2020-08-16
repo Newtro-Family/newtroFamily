@@ -44,11 +44,13 @@ public class DragPlayer : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
         // 캐릭터 크기 변환
         // 변환 key
-        float sizeKey = rectTransform.anchoredPosition.y;
+        float sizeKey = rectTransform.anchoredPosition.y * 0.1f;
 
         //if (eventData.delta.y == 0) rectTransform.sizeDelta = new Vector2(originSize, originSize);
-         if (eventData.delta.y < 0) rectTransform.sizeDelta = new Vector2(100 - sizeKey, 100 - sizeKey);
+        if (eventData.delta.y < 0) rectTransform.sizeDelta = new Vector2(100 - sizeKey, 100 - sizeKey);
         else rectTransform.sizeDelta = new Vector2(100 - sizeKey, 100 - sizeKey);
+
+        Debug.Log("현재 플레이어 크기: " + rectTransform.sizeDelta);
     }
 
     public void OnEndDrag(PointerEventData eventData)
