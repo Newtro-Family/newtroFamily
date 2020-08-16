@@ -15,7 +15,7 @@ public class DragPlayer : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
         // 오브젝트 최초 크기 저장
         float originSize = rectTransform.sizeDelta.x;
-        Debug.Log(originSize);
+        //Debug.Log(originSize);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,7 +25,7 @@ public class DragPlayer : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
 
         /*
         // 주어진 범위를 벗어나지 않을 때에만 위치 변경 (x)
@@ -40,17 +40,17 @@ public class DragPlayer : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         rectTransform.anchoredPosition += eventData.delta;
         float positionY = rectTransform.anchoredPosition.y;
 
-        Debug.Log("현재 y 좌표: " + rectTransform.anchoredPosition.y);
+        //Debug.Log("현재 y 좌표: " + rectTransform.anchoredPosition.y);
 
         // 캐릭터 크기 변환
         // 변환 key
-        float sizeKey = rectTransform.anchoredPosition.y * 0.1f;
+        float sizeKey = rectTransform.anchoredPosition.y * 0.2f;
 
         //if (eventData.delta.y == 0) rectTransform.sizeDelta = new Vector2(originSize, originSize);
         if (eventData.delta.y < 0) rectTransform.sizeDelta = new Vector2(100 - sizeKey, 100 - sizeKey);
         else rectTransform.sizeDelta = new Vector2(100 - sizeKey, 100 - sizeKey);
 
-        Debug.Log("현재 플레이어 크기: " + rectTransform.sizeDelta);
+        //Debug.Log("현재 플레이어 크기: " + rectTransform.sizeDelta);
     }
 
     public void OnEndDrag(PointerEventData eventData)
