@@ -5,27 +5,23 @@ using UnityEngine;
 
 public class CtrlPlayer : MonoBehaviour
 {
-    private Transform circleTr;
+    private Collision2D circleTr;
 
     // Start is called before the first frame update
     void Start()
     {
-        circleTr = GetComponent<Transform>();
+        
         Debug.Log(circleTr);
     }
 
     // Update is called once per frame
     void Update()
     {
-        OnCollisionEnter(circleTr);
+        OnCollisionEnter2D(circleTr);
     }
-
-    private void OnCollisionEnter(Transform circleTr)
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnCollisionEnter(Collision collision)
+    
+    /*
+    private void OnCollisionEnter(Collision2D collision)
     {
         Debug.Log("하");
         // 제기 Bounce 반사각
@@ -33,7 +29,7 @@ public class CtrlPlayer : MonoBehaviour
         {
             Debug.Log("충돌!!");
 
-            Vector3 reflect = collision.transform.position - circleTr.position;
+            Vector3 reflect = collision.transform.position - circleTr.transform.position;
 
             float result = 0.0f;
 
@@ -44,4 +40,17 @@ public class CtrlPlayer : MonoBehaviour
 
         }
     }
+    */
+
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            Debug.Log("Ball과 충돌하였음!");
+            //GameObject.Find("Canvas").transform.Find("Over").gameObject.SetActive(true);
+            //Time.timeScale = 0f;
+        }
+    }
+    
 }
