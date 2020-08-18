@@ -187,9 +187,14 @@ public class Game3Manager : MonoBehaviour
                 }
 
                 quiz_num++;
-                
+
                 // Game2로 넘어가기
-                if (quiz_num == 5) SceneManager.LoadScene("05_Game2");
+                if (quiz_num == 5)
+                {
+                    SceneManager.LoadScene("05_Game2");
+                    Debug.Log("게임2로딩");
+                }
+
                 StartCoroutine(ReadyDelay());
 
                 Invoke("Start", 1f);
