@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Game1Manager : MonoBehaviour
@@ -59,27 +60,41 @@ public class Game1Manager : MonoBehaviour
 
         // 플레이어 원위치
         PlayerList[pm].transform.position = new Vector2(960.0f, 535.0f);
-        
+
         // 다음 차례의 리스트로
-        if (pm == 3) pm = 0;
-        else pm++;
+        //if (pm == 3) pm = 0;
+        //else pm++;
+        pm++;
 
-        // 현재 플레이어만 활성화
-        PlayerList[0].SetActive(false);
-        PlayerList[1].SetActive(false);
-        PlayerList[2].SetActive(false);
-        PlayerList[3].SetActive(false);
+        // 4명 모두 한 경우에는 다음 플로우로
+        if (pm == 4)
+        {
+            Debug.Log("다음 게임");
+            //GameSelectManager gameManager = GameObject.Find("Canvas").GetComponent<GameSelectManager>();
+            //gameManager.LoadGameFlow();
 
-        PlayerList[pm].SetActive(true);
+            if (SceneManager.GetActiveScene().name == "04_Game1") SceneManager.LoadScene("06_Game3");
+            else SceneManager.LoadScene("09_GameResult");
+        }
+        else
+        {
+            // 현재 플레이어만 활성화
+            PlayerList[0].SetActive(false);
+            PlayerList[1].SetActive(false);
+            PlayerList[2].SetActive(false);
+            PlayerList[3].SetActive(false);
 
-        // 플레이어, 제기 위치 원상태로
-        ball.transform.position = new Vector2(1021.0f, 890.0f);
-        rigidBall.velocity = new Vector2(0, 0);
+            PlayerList[pm].SetActive(true);
 
-        // 카운드다운
-        StartCoroutine(ReadyDelay());
+            // 플레이어, 제기 위치 원상태로
+            ball.transform.position = new Vector2(1021.0f, 890.0f);
+            rigidBall.velocity = new Vector2(0, 0);
 
-        Invoke("Start", 1f);
+            // 카운트다운
+            StartCoroutine(ReadyDelay());
+
+            Invoke("Start", 1f);
+        }
     }
 
 
