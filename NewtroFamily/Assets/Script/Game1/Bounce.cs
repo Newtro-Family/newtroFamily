@@ -18,14 +18,14 @@ public class Bounce : MonoBehaviour
     {
         rigidBall = GetComponent<Rigidbody2D>();
         // 점수 초기화
-        txtGoal.text = "0";
+        //txtGoal.text = "0";      // 다른 게임이랑 누적
         numGoal = 0;
     }
     
     void Update()
     {
         //rigidBall.velocity = new Vector2(0, 0) * force;
-        txtGoal.text = numGoal.ToString();
+        txtGoal.text += numGoal.ToString();
     }
     
 
