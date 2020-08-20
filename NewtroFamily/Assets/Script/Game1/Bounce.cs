@@ -25,7 +25,7 @@ public class Bounce : MonoBehaviour
     void Update()
     {
         //rigidBall.velocity = new Vector2(0, 0) * force;
-        txtGoal.text += numGoal.ToString();
+        txtGoal.text = numGoal.ToString();
     }
     
 

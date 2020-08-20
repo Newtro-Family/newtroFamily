@@ -75,6 +75,14 @@ public class Game3Manager : MonoBehaviour
             player4.SetActive(true);
         }
 
+        // 점수 데이터 가져오기
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        p1_count.text = flowM.score[0].ToString();
+        p2_count.text = flowM.score[1].ToString();
+        p3_count.text = flowM.score[2].ToString();
+        p4_count.text = flowM.score[3].ToString();
+
 
         //퀴즈 
         string q_file_name = "quiz" + quiz_num;
@@ -160,6 +168,9 @@ public class Game3Manager : MonoBehaviour
 
     void Update()
     {
+        // 점수 데이터 저장
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
         if (isTimer)
         {
             float time = endTime - Time.time;
@@ -171,18 +182,34 @@ public class Game3Manager : MonoBehaviour
 
                 if (p_num == 1)
                 {
+                    // 점수 데이터에 합산
+                    flowM.score[0] += count;
+                    Debug.Log("첫번째 플레이어의 현재까지 점수: " + flowM.score[0].ToString());
+
                     p1_count.text = count.ToString();
                 }
                 else if (p_num == 2)
                 {
+                    // 점수 데이터에 합산
+                    flowM.score[1] += count;
+                    Debug.Log("두번째 플레이어의 현재까지 점수: " + flowM.score[1].ToString());
+
                     p2_count.text = count.ToString();
                 }
                 else if (p_num == 3)
                 {
+                    // 점수 데이터에 합산
+                    flowM.score[2] += count;
+                    Debug.Log("세번째 플레이어의 현재까지 점수: " + flowM.score[2].ToString());
+
                     p3_count.text = count.ToString();
                 }
                 else if (p_num == 4)
                 {
+                    // 점수 데이터에 합산
+                    flowM.score[3] += count;
+                    Debug.Log("네번째 플레이어의 현재까지 점수: " + flowM.score[3].ToString());
+
                     p4_count.text = count.ToString();
                 }
 
@@ -192,9 +219,7 @@ public class Game3Manager : MonoBehaviour
                 if (quiz_num == 5)
                 {
                     Debug.Log("다음 게임");
-
-                    GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
-
+                    
                     if (flowM.game == 1)
                     {
                         flowM.StartSecond(); Debug.Log("딱지뒤집기 완료. 두번째 게임: " + flowM.gameflow[1]);
