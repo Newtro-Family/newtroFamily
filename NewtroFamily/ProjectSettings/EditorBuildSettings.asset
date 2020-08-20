@@ -17,14 +17,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/03_SelectGame.unity
     guid: e1635654b5286944abcb8cf10de0c9e0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/04_Game1.unity
-    guid: f6b1a5a66321ff44d81bb9dc7532759e
-  - enabled: 1
-    path: Assets/Scenes/04_Game1.unity
-    guid: f5f5f905bdc7bda4a915d2129c558d34
+    guid: 9a5ec3e9dc67bf542bc574728df214f3
   - enabled: 1
     path: Assets/Scenes/05_Game2.unity
+    guid: 2d5c501c876b11848bf2115a5bd63ba8
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/941d5524961e5d340a3c6e473edca6f1
     guid: 941d5524961e5d340a3c6e473edca6f1
   - enabled: 1
     path: Assets/Scenes/06_Game3.unity
@@ -35,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/08_GameReady.unity
     guid: b6a61096b5eeee5429a5b0c445007725
+  - enabled: 1
+    path: Assets/Scenes/09_GameResult.unity
+    guid: 52d4382352b562a498931ebd65105636
   m_configObjects: {}

@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 2109382125}
   - component: {fileID: 2109382124}
   m_Layer: 5
-  m_Name: Coupon_btn
+  m_Name: Quit_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 784828492}
-        m_MethodName: SceneChange_coupon
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea73e306bbf9a0741a491d10b71c4cac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f47e818f624166b459afaed625a0e376, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
