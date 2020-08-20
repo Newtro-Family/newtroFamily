@@ -57,4 +57,17 @@ public class ChangeScene : MonoBehaviour
         //setting씬으로 이동
         SceneManager.LoadScene("08_GameReady", LoadSceneMode.Additive);
     }
+<<<<<<< Updated upstream
+=======
+    public void SceneChange_Result()
+    {
+        //result씬으로 이동
+        SceneManager.LoadScene("09_GameResult", LoadSceneMode.Additive);
+    }
+    public void QuitGame()
+    {
+        Debug.Log("게임종료");
+        Application.Quit();
+    }
+>>>>>>> Stashed changes
 }
