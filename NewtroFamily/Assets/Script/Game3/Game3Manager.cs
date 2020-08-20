@@ -14,16 +14,17 @@ public class Game3Manager : MonoBehaviour
     public GameObject player1, player2, player3, player4; //플레이어 점수판 오브젝트
 
     public GameObject go_correct, go_wrong, quiz_status;
-    public GameObject ready_2;
+    public GameObject ready_2, ready_3, ready_4;
     public GameObject t_1, t_2, t_3, t_4, t_5, t_6, t_7, t_8;
-    public Text t_question, t_count, p1_count, p2_count,p3_count,p4_count;
+    public Text t_question, t_count, p1_count, p2_count,p3_count,p4_count; //p(n)_count 해당 플레이어 점수판 텍스트
     public Text[] Txts_option; //size=8
     public Button[] Btns_option; //size=8
 
     //변수
     char[] corrects = new char[10];
     bool wrong = false;
-    int count, page = 0;
+    int count, page = 0; //count가 현재 진행중인 플레이어의 맞은 개수를 나타냄, Start에서 다음 플레이어로 넘어갈때 0으로 초기화
+    private int wrong_count = 0;
     public int quiz_num = 1;
     public int p_num = 0;
     StringReader q_stringReader;
@@ -52,7 +53,7 @@ public class Game3Manager : MonoBehaviour
     void Start()
     {
         //카운트 초기화
-        count = 0;
+        count = 0; //해당 플레이어의 현재 점수 초기화
         //타이머 시작 
         StartTimer(gameTime);
 
@@ -162,7 +163,7 @@ public class Game3Manager : MonoBehaviour
         for(int i=0;i<8;i++)
         {
             Button option = Btns_option[i];
-            Btns_option[i].interactable = true;
+            Btns_option[i].interactable = false;
         }
     }
 
@@ -251,14 +252,10 @@ public class Game3Manager : MonoBehaviour
         timerSlider.value = time;
     }
 
-    void Wrong_3times()
-    {
-        Invoke("Next_Question", 1f);
-    }
-
     void Next_Question()
     {
         page++;
+        wrong_count = 0;
         Reset();
     }
 
@@ -336,10 +333,10 @@ public class Game3Manager : MonoBehaviour
                 }
 
                 quiz_status.SetActive(true);
+                quiz_num++;
                 StartCoroutine(ReadyDelay());
 
                 Invoke("Start", 1f);
-                quiz_num++;
                 //count = 0;
 
             }
@@ -365,6 +362,7 @@ public class Game3Manager : MonoBehaviour
 
     IEnumerator Start_Delay()
     {
+
         yield return start_term;
 
         t_1.SetActive(false);
@@ -376,6 +374,11 @@ public class Game3Manager : MonoBehaviour
         t_7.SetActive(false);
         t_8.SetActive(false);
 
+        for (int i = 0; i < 8; i++)
+        {
+            Button option = Btns_option[i];
+            Btns_option[i].interactable = true;
+        }
 
     }
 
@@ -395,7 +398,17 @@ public class Game3Manager : MonoBehaviour
             count++;
         }
         else
+        {
             check = go_wrong;
+            wrong_count++;
+
+            //세번 틀릴 시 다음 문제로로 넘어감
+            if (wrong_count == 3)
+            {
+                wrong_count = 0;
+                Invoke("Next_Question", 1f);
+            }
+        }
             
         check.SetActive(true);
 
@@ -407,13 +420,34 @@ public class Game3Manager : MonoBehaviour
     IEnumerator ReadyDelay()
     {
         quiz_status.SetActive(false);
-        ready_2.SetActive(true);
+
+        if (quiz_num == 2)
+        {
+            ready_2.SetActive(true);
+        }
+        else if(quiz_num ==3)
+        {
+            ready_3.SetActive(true);
+        }
+        else if(quiz_num == 4)
+        {
+            ready_4.SetActive(true);
+        }
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 6.0f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
-        ready_2.gameObject.SetActive(false);
+
+            ready_2.gameObject.SetActive(false);
+        if (quiz_num == 3)
+        {
+            ready_3.gameObject.SetActive(false);
+        }
+        else if (quiz_num == 4)
+        {
+            ready_4.gameObject.SetActive(false);
+        }
 
         Time.timeScale = 1.0f;
     }

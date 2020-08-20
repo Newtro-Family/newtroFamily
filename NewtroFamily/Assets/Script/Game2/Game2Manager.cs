@@ -10,7 +10,7 @@ public class Game2Manager : MonoBehaviour
     //UI
     public GameObject player1, player2, player3, player4; //플레이어 점수판 오브젝트
     public Text p1_count, p2_count, p3_count, p4_count; //플레이어 획득 점수 text
-    public GameObject ready_2; //카운트 다운 애니메이션
+    public GameObject ready_2, ready_3, ready_4; //카운트 다운 애니메이션
 
     //box 숫자 표시
     //public Text[] Box_options;
@@ -139,13 +139,33 @@ public class Game2Manager : MonoBehaviour
 
     IEnumerator ReadyDelay()
     {
-        ready_2.SetActive(true);
+        if (playturn == 2)
+        {
+            ready_2.SetActive(true);
+        }
+        else if(playturn==3)
+        {
+            ready_3.SetActive(true);
+        }
+        else if(playturn==4)
+        {
+            ready_4.SetActive(true);
+        }
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 6.0f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
         ready_2.gameObject.SetActive(false);
+
+        if(playturn==3)
+        {
+            ready_3.SetActive(false);
+        }
+        else if(playturn==4)
+        {
+            ready_4.SetActive(false);
+        }
 
         Time.timeScale = 1.0f;
     }

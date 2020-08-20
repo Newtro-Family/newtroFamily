@@ -18,8 +18,8 @@ public class Game1Manager : MonoBehaviour
     public Text currentGoal;    // 현재점수
     public Text goal1, goal2, goal3, goal4; // 플레이어 점수판의 텍스트
     public List<Text> GoalList = new List<Text>();  // 플레이어 점수 텍스트 리스트
-    
-    public GameObject ready_2;
+
+    public GameObject ready_1, ready_2, ready_3, ready_4; //플레이어 레디 오브젝트
 
     // Start is called before the first frame update
     void Start()
@@ -126,13 +126,41 @@ public class Game1Manager : MonoBehaviour
     // 카운트다운 코루틴
     IEnumerator ReadyDelay()
     {
-        ready_2.SetActive(true);
+        if (pm == 0)
+        {
+            ready_1.SetActive(true);
+        }
+        else if (pm == 1)
+        {
+            ready_2.SetActive(true);
+        }
+        else if (pm == 2)
+        {
+            ready_3.SetActive(true);
+        }
+        else if (pm == 3)
+        {
+            ready_4.SetActive(true);
+        }
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 6.0f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
-        ready_2.gameObject.SetActive(false);
+        ready_1.gameObject.SetActive(false);
+
+        if(pm==1)
+        {
+            ready_2.SetActive(false);
+        }
+        else if(pm==2)
+        {
+            ready_3.SetActive(false);
+        }
+        else if(pm==3)
+        {
+            ready_4.SetActive(false);
+        }
 
         Time.timeScale = 1.0f;
     }
