@@ -89,8 +89,23 @@ public class Game2Manager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("09_GameResult");
-            Debug.Log("게임2 끝");
+            Debug.Log("다음 게임");
+
+            GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+            if (flowM.game == 1)
+            {
+                flowM.StartSecond(); Debug.Log("고무신던지기 완료. 두번째 게임: " + flowM.gameflow[1]);
+            }
+            else if (flowM.game == 2)
+            {
+                flowM.StartThird(); Debug.Log("고무신던지기 완료. 세번째 게임: " + flowM.gameflow[2]);
+            }
+            else if (flowM.game == 3)
+            {
+                SceneManager.LoadScene("09_GameResult");
+                Debug.Log("고무신던지기 완료. 결과 화면으로");
+            }
         }
 
         Invoke("Start", 1f);

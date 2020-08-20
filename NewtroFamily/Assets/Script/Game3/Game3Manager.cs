@@ -191,8 +191,23 @@ public class Game3Manager : MonoBehaviour
                 // Game2로 넘어가기
                 if (quiz_num == 5)
                 {
-                    SceneManager.LoadScene("05_Game2");
-                    Debug.Log("게임2로딩");
+                    Debug.Log("다음 게임");
+
+                    GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+                    if (flowM.game == 1)
+                    {
+                        flowM.StartSecond(); Debug.Log("딱지뒤집기 완료. 두번째 게임: " + flowM.gameflow[1]);
+                    }
+                    else if (flowM.game == 2)
+                    {
+                        flowM.StartThird(); Debug.Log("딱지뒤집기 완료. 세번째 게임: " + flowM.gameflow[2]);
+                    }
+                    else if (flowM.game == 3)
+                    {
+                        SceneManager.LoadScene("09_GameResult");
+                        Debug.Log("딱지뒤집기 완료. 결과 화면으로");
+                    }
                 }
 
                 StartCoroutine(ReadyDelay());
