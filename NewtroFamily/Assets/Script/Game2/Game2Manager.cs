@@ -22,6 +22,14 @@ public class Game2Manager : MonoBehaviour
 
     void Start()
     {
+        // 점수 데이터 가져오기
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        p1_count.text = flowM.score[0].ToString();
+        p2_count.text = flowM.score[1].ToString();
+        p3_count.text = flowM.score[2].ToString();
+        p4_count.text = flowM.score[3].ToString();
+        
         switch(playturn)
         {
             case 1:
@@ -47,7 +55,10 @@ public class Game2Manager : MonoBehaviour
             print(BoxList[rand]);
             BoxList.RemoveAt(rand);
 
-            switch (box_num)
+        // 점수 데이터 저장
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        switch (box_num)
             {
                 case 1:
                     box1.text = BoxList[rand].ToString();
@@ -66,19 +77,35 @@ public class Game2Manager : MonoBehaviour
 
         if (playturn == 1)
         {
-            p1_count.text = BoxList[rand].ToString();
+            // 점수 데이터에 합산
+            flowM.score[0] += BoxList[rand];
+            Debug.Log("첫번째 플레이어의 현재까지 점수: " + flowM.score[0].ToString());
+
+            p1_count.text = flowM.score[0].ToString();
         }
         else if (playturn == 2)
         {
-            p2_count.text = BoxList[rand].ToString();
+            // 점수 데이터에 합산
+            flowM.score[1] += BoxList[rand];
+            Debug.Log("두번째 플레이어의 현재까지 점수: " + flowM.score[1].ToString());
+
+            p2_count.text = flowM.score[1].ToString();
         }
         else if (playturn == 3)
         {
-            p3_count.text = BoxList[rand].ToString();
+            // 점수 데이터에 합산
+            flowM.score[2] += BoxList[rand];
+            Debug.Log("세번째 플레이어의 현재까지 점수: " + flowM.score[2].ToString());
+
+            p3_count.text = flowM.score[2].ToString();
         }
         else if (playturn == 4)
         {
-            p4_count.text = BoxList[rand].ToString();
+            // 점수 데이터에 합산
+            flowM.score[3] += BoxList[rand];
+            Debug.Log("네번째 플레이어의 현재까지 점수: " + flowM.score[3].ToString());
+
+            p4_count.text = flowM.score[3].ToString();
         }
             
         playturn++;
@@ -90,8 +117,6 @@ public class Game2Manager : MonoBehaviour
         else
         {
             Debug.Log("다음 게임");
-
-            GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
 
             if (flowM.game == 1)
             {

@@ -61,14 +61,16 @@ public class Game1Manager : MonoBehaviour
     // 현재 플레이어 변경 함수
     public void ChangePlayer()
     {
-        // 현재 게임 씬에서 점수 반영
+
         Bounce numGoal = GameObject.Find("Ball").GetComponent<Bounce>();
-        GoalList[pm].text = numGoal.numGoal.ToString();
 
         // 점수 데이터 저장
         GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
-        flowM.score[pm] = numGoal.numGoal;
-        Debug.Log(pm + 1 + "번째 플레이어의 제기 점수: " + numGoal.numGoal);
+        flowM.score[pm] += numGoal.numGoal;
+        Debug.Log(pm + 1 + "번째 플레이어의 제기 점수: " + numGoal.numGoal + "/ 총 점수: " + flowM.score[pm].ToString());
+        
+        // 현재 게임 씬에서 점수 반영
+        GoalList[pm].text = flowM.score[pm].ToString();
 
         numGoal.numGoal = 0;    //현재점수 초기화
 
