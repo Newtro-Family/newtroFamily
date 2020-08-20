@@ -314,7 +314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &173448571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &475577955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &705661359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &708994931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1186,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &710901448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1682,6 +1682,7 @@ GameObject:
   - component: {fileID: 1149194687}
   - component: {fileID: 1149194686}
   - component: {fileID: 1149194685}
+  - component: {fileID: 1149194691}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1807,6 +1808,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1149194691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149194684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29aa0f4c532d7945be677aae71206a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  First1: {fileID: 475577954}
+  First2: {fileID: 342595902}
+  First3: {fileID: 1792496719}
+  First4: {fileID: 2094533429}
+  Second1: {fileID: 1232950438}
+  Second2: {fileID: 710901447}
+  Second3: {fileID: 1545022234}
+  Second4: {fileID: 1051985213}
+  Third1: {fileID: 332651063}
+  Third2: {fileID: 705299040}
+  Third3: {fileID: 708994930}
+  Third4: {fileID: 1909753659}
+  Fourth1: {fileID: 954690197}
+  Fourth2: {fileID: 99990651}
+  Fourth3: {fileID: 1682635018}
+  Fourth4: {fileID: 705661358}
 --- !u!1 &1161735551
 GameObject:
   m_ObjectHideFlags: 0
