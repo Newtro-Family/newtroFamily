@@ -41,6 +41,14 @@ public class Game1Manager : MonoBehaviour
         PlayerList[1].SetActive(false);
         PlayerList[2].SetActive(false);
         PlayerList[3].SetActive(false);*/
+
+        // 점수 데이터 가져오기
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        GoalList[0].text = flowM.score[0].ToString();
+        GoalList[1].text = flowM.score[1].ToString();
+        GoalList[2].text = flowM.score[2].ToString();
+        GoalList[3].text = flowM.score[3].ToString();
     }
 
     // Update is called once per frame
@@ -53,9 +61,15 @@ public class Game1Manager : MonoBehaviour
     // 현재 플레이어 변경 함수
     public void ChangePlayer()
     {
-        // 점수 반영
+        // 현재 게임 씬에서 점수 반영
         Bounce numGoal = GameObject.Find("Ball").GetComponent<Bounce>();
         GoalList[pm].text = numGoal.numGoal.ToString();
+
+        // 점수 데이터 저장
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+        flowM.score[pm] = numGoal.numGoal;
+        Debug.Log(pm + 1 + "번째 플레이어의 제기 점수: " + numGoal.numGoal);
+
         numGoal.numGoal = 0;    //현재점수 초기화
 
         // 플레이어 원위치
@@ -70,8 +84,6 @@ public class Game1Manager : MonoBehaviour
         if (pm == 4)
         {
             Debug.Log("다음 게임");
-
-            GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
 
             if (flowM.game == 1)
             {
