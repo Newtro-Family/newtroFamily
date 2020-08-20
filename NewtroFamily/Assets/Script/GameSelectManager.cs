@@ -13,7 +13,7 @@ public class GameSelectManager : MonoBehaviour
     public Sprite[] gamenum;
 
     //변수
-    public int count=0;
+    //public int count=0;
     public int[] gameflow = new int[3];
     public bool clear;
     //static int levelCount;
@@ -21,26 +21,29 @@ public class GameSelectManager : MonoBehaviour
 
     public void Game1()
     {
+
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
         if (game2_btn.interactable == true && game3_btn.interactable == true)
         {
             game1_btn.GetComponent<Image>().sprite = gamenum[0];
             game1_btn.interactable = false;
-            Debug.Log("Game1을 첫번째로 플레이");
-            gameflow[0] = 1;
+
+            flowM.SetFirst(1);
         }
         else if ((game2_btn.interactable == false && game3_btn.interactable == true) || (game2_btn.interactable == true && game3_btn.interactable == false))
         {
             game1_btn.GetComponent<Image>().sprite = gamenum[1];
             game1_btn.interactable = false;
-            Debug.Log("Game1를 두번째로 플레이");
-            gameflow[1] = 1;
+            flowM.SetSecond(1);
+            //gameflow[1] = 1;
         }
         else if (game2_btn.interactable == false && game3_btn.interactable == false)
         {
             game1_btn.GetComponent<Image>().sprite = gamenum[2];
             game1_btn.interactable = false;
-            Debug.Log("Game1을 세번째로 플레이");
-            gameflow[2] = 1;
+            flowM.SetThird(3);
+            //gameflow[2] = 1;
 
             if (game1_btn.interactable == false && game2_btn.interactable == false && game3_btn.interactable == false)
             {
@@ -51,26 +54,25 @@ public class GameSelectManager : MonoBehaviour
     }
     public void Game2()
     {
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
         if (game1_btn.interactable == true && game3_btn.interactable == true)
         {
             game2_btn.GetComponent<Image>().sprite = gamenum[0];
             game2_btn.interactable = false;
-            Debug.Log("Game2을 첫번째로 플레이");
-            gameflow[0] = 2;
+            flowM.SetFirst(2);
         }
         else if ((game1_btn.interactable == false && game3_btn.interactable == true) || (game1_btn.interactable == true && game3_btn.interactable == false))
         {
             game2_btn.GetComponent<Image>().sprite = gamenum[1];
             game2_btn.interactable = false;
-            Debug.Log("Game2을 두번째로 플레이");
-            gameflow[1] = 2;
+            flowM.SetSecond(2);
         }
         else if (game1_btn.interactable == false && game3_btn.interactable == false)
         {
             game2_btn.GetComponent<Image>().sprite = gamenum[2];
             game2_btn.interactable = false;
-            Debug.Log("Game3을 세번째로 플레이");
-            gameflow[2] = 2;
+            flowM.SetThird(2);
 
             if (game1_btn.interactable == false && game2_btn.interactable == false && game3_btn.interactable == false)
             {
@@ -81,26 +83,25 @@ public class GameSelectManager : MonoBehaviour
     }
     public void Game3()
     {
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
         if (game2_btn.interactable == true && game1_btn.interactable == true)
         {
             game3_btn.GetComponent<Image>().sprite = gamenum[0];
             game3_btn.interactable = false;
-            Debug.Log("Game3을 첫번째로 플레이");
-            gameflow[0] = 3;
+            flowM.SetFirst(3);
         }
         else if ((game2_btn.interactable == false && game1_btn.interactable == true) || (game2_btn.interactable == true && game1_btn.interactable == false))
         {
             game3_btn.GetComponent<Image>().sprite = gamenum[1];
             game3_btn.interactable = false;
-            Debug.Log("Game3을 두번째로 플레이");
-            gameflow[1] = 3;
+            flowM.SetSecond(3);
         }
         else if (game2_btn.interactable == false && game1_btn.interactable == false)
         {
             game3_btn.GetComponent<Image>().sprite = gamenum[2];
             game3_btn.interactable = false;
-            Debug.Log("Game3을 세번째로 플레이");
-            gameflow[2] = 3;
+            flowM.SetThird(3);
 
             if (game1_btn.interactable == false && game2_btn.interactable == false && game3_btn.interactable == false)
             {
@@ -119,13 +120,8 @@ public class GameSelectManager : MonoBehaviour
 
     public void LoadGameFlow()
     {
-        Debug.Log("게임 로딩");
-        if (gameflow[count] == 1) SceneManager.LoadScene("04_Game1");
-        else if (gameflow[count] == 2) SceneManager.LoadScene("05_Game2");
-        else if (gameflow[count] == 3) SceneManager.LoadScene("06_Game3");
-        else if (count == 3) SceneManager.LoadScene("09_GameResult");
-
-        count++;
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+        flowM.StartFirst();
     }
 
 

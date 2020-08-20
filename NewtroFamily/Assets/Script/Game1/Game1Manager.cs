@@ -70,11 +70,22 @@ public class Game1Manager : MonoBehaviour
         if (pm == 4)
         {
             Debug.Log("다음 게임");
-            //GameSelectManager gameManager = GameObject.Find("Canvas").GetComponent<GameSelectManager>();
-            //gameManager.LoadGameFlow();
 
-            if (SceneManager.GetActiveScene().name == "04_Game1") SceneManager.LoadScene("06_Game3");
-            else SceneManager.LoadScene("09_GameResult");
+            GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+            if (flowM.game == 1)
+            {
+                flowM.StartSecond(); Debug.Log("제기차기 완료. 두번째 게임: " + flowM.gameflow[1]);
+            }
+            else if (flowM.game == 2)
+            {
+                flowM.StartThird(); Debug.Log("제기차기 완료. 세번째 게임: " + flowM.gameflow[2]);
+            }
+            else if (flowM.game == 3)
+            {
+                SceneManager.LoadScene("09_GameResult");
+                Debug.Log("제기차기 완료. 결과 화면으로");
+            }
         }
         else
         {
