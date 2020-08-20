@@ -13,7 +13,6 @@ public class SettingManager : MonoBehaviour
     void Start()
     {
         SM = SoundManager.Instance;
-        Time.timeScale = 0;
     }
 
     public void BE_Gomain()
@@ -22,7 +21,6 @@ public class SettingManager : MonoBehaviour
     }
     public void BE_Play()
     {
-        Time.timeScale = 1.0f;
         SceneManager.UnloadSceneAsync("07_Setting");
     }
 }

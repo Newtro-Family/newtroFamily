@@ -8,7 +8,6 @@ public class SelectPlayernum : MonoBehaviour
     //변수
     //UI
     public GameObject player2,player3,player4,cancle2,cancle3,cancle4;
-    public GameObject p2_nickname, p3_nickname, p4_nickname;
 
     //Resource
     public Sprite dahye, younghee, chulsoo;
@@ -22,7 +21,6 @@ public class SelectPlayernum : MonoBehaviour
         player2.SetActive(true);
         player2.GetComponent<Image>().sprite = Resources.Load("dahye", typeof(Sprite)) as Sprite;
         cancle2.SetActive(true);
-        p2_nickname.SetActive(true);
         player3.SetActive(true);
 
     }
@@ -32,7 +30,6 @@ public class SelectPlayernum : MonoBehaviour
     {
         player3.GetComponent<Image>().sprite = Resources.Load("younghee", typeof(Sprite)) as Sprite;
         cancle3.SetActive(true);
-        p3_nickname.SetActive(true);
         player4.SetActive(true);
     }
 
@@ -41,7 +38,6 @@ public class SelectPlayernum : MonoBehaviour
     {
         player4.GetComponent<Image>().sprite = Resources.Load("chulsoo", typeof(Sprite)) as Sprite;
         cancle4.SetActive(true);
-        p4_nickname.SetActive(true);
     }
     
     //캐릭터 2 취소 
@@ -50,19 +46,16 @@ public class SelectPlayernum : MonoBehaviour
         player2.GetComponent<Image>().sprite = Resources.Load("plus", typeof(Sprite)) as Sprite;
         cancle2.SetActive(false);
         player3.SetActive(false);
-        p2_nickname.SetActive(false);
     }
     public void Cancle3()
     {
         player3.GetComponent<Image>().sprite = Resources.Load("plus", typeof(Sprite)) as Sprite;
         cancle3.SetActive(false);
         player4.SetActive(false);
-        p3_nickname.SetActive(false);
     }
     public void Cancle4()
     {
         player4.GetComponent<Image>().sprite = Resources.Load("plus", typeof(Sprite)) as Sprite;
         cancle4.SetActive(false);
-        p4_nickname.SetActive(false);
     }
 }
