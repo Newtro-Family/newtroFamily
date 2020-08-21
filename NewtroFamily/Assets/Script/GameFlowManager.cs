@@ -12,7 +12,7 @@ public class GameFlowManager : MonoBehaviour
     // 게임순서 저장 배열
     public int[] gameflow = new int[3];
     // 플레이어별 점수 저장
-    public static int score1, score2, score3, score4 = 0;
+    public int[] score = new int[4];
     // 현재 게임이 몇번째인지
     public int game = 0;
 
@@ -20,6 +20,9 @@ public class GameFlowManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(GameFlow);
+
+        // 점수 0으로 초기화
+        score[0] = 0; score[1] = 0; score[2] = 0; score[3] = 0;
     }
 
     // 게임 순서 설정 ----------------------------------------------

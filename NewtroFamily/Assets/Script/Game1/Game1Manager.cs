@@ -18,8 +18,8 @@ public class Game1Manager : MonoBehaviour
     public Text currentGoal;    // 현재점수
     public Text goal1, goal2, goal3, goal4; // 플레이어 점수판의 텍스트
     public List<Text> GoalList = new List<Text>();  // 플레이어 점수 텍스트 리스트
-    
-    public GameObject ready_2;
+
+    public GameObject ready_1, ready_2, ready_3, ready_4; //플레이어 레디 오브젝트
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,14 @@ public class Game1Manager : MonoBehaviour
         PlayerList[1].SetActive(false);
         PlayerList[2].SetActive(false);
         PlayerList[3].SetActive(false);*/
+
+        // 점수 데이터 가져오기
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        GoalList[0].text = flowM.score[0].ToString();
+        GoalList[1].text = flowM.score[1].ToString();
+        GoalList[2].text = flowM.score[2].ToString();
+        GoalList[3].text = flowM.score[3].ToString();
     }
 
     // Update is called once per frame
@@ -53,9 +61,17 @@ public class Game1Manager : MonoBehaviour
     // 현재 플레이어 변경 함수
     public void ChangePlayer()
     {
-        // 점수 반영
+
         Bounce numGoal = GameObject.Find("Ball").GetComponent<Bounce>();
-        GoalList[pm].text = numGoal.numGoal.ToString();
+
+        // 점수 데이터 저장
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+        flowM.score[pm] += numGoal.numGoal;
+        Debug.Log(pm + 1 + "번째 플레이어의 제기 점수: " + numGoal.numGoal + "/ 총 점수: " + flowM.score[pm].ToString());
+        
+        // 현재 게임 씬에서 점수 반영
+        GoalList[pm].text = flowM.score[pm].ToString();
+
         numGoal.numGoal = 0;    //현재점수 초기화
 
         // 플레이어 원위치
@@ -70,8 +86,6 @@ public class Game1Manager : MonoBehaviour
         if (pm == 4)
         {
             Debug.Log("다음 게임");
-
-            GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
 
             if (flowM.game == 1)
             {
@@ -112,13 +126,41 @@ public class Game1Manager : MonoBehaviour
     // 카운트다운 코루틴
     IEnumerator ReadyDelay()
     {
-        ready_2.SetActive(true);
+        if (pm == 0)
+        {
+            ready_1.SetActive(true);
+        }
+        else if (pm == 1)
+        {
+            ready_2.SetActive(true);
+        }
+        else if (pm == 2)
+        {
+            ready_3.SetActive(true);
+        }
+        else if (pm == 3)
+        {
+            ready_4.SetActive(true);
+        }
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 6.0f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
-        ready_2.gameObject.SetActive(false);
+        ready_1.gameObject.SetActive(false);
+
+        if(pm==1)
+        {
+            ready_2.SetActive(false);
+        }
+        else if(pm==2)
+        {
+            ready_3.SetActive(false);
+        }
+        else if(pm==3)
+        {
+            ready_4.SetActive(false);
+        }
 
         Time.timeScale = 1.0f;
     }
