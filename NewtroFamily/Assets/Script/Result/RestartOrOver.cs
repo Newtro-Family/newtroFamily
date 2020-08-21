@@ -7,12 +7,27 @@ using UnityEngine.SceneManagement;
 public class RestartOrOver : MonoBehaviour
 {
     public Button btnRestart, btnOver;
+    // 다 열렸나 확인
+    public GameObject ticket1, ticket2, ticket3, ticket4;
 
     // Start is called before the first frame update
     void Start()
     {
         btnRestart.onClick.AddListener(Restart);
         btnOver.onClick.AddListener(GameOver);
+
+        // 일단 안보이게
+        btnRestart.gameObject.SetActive(false);
+        btnOver.gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (ticket1.activeSelf && ticket2.activeSelf && ticket3.activeSelf && ticket4.activeSelf)
+        {
+            btnRestart.gameObject.SetActive(true);
+            btnOver.gameObject.SetActive(true);
+        }
     }
 
     void Restart()
