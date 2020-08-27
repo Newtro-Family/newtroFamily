@@ -61,7 +61,7 @@ public class GameSelectManager : MonoBehaviour
             game1_btn.interactable = false;
             game1_can.SetActive(true); // 게임1 선택 시 취소 기능 활성화
 
-            flowM.SetThird(3);
+            flowM.SetThird(1);
             //gameflow[2] = 1;
 
             if (game1_btn.interactable == false && game2_btn.interactable == false && game3_btn.interactable == false) 
