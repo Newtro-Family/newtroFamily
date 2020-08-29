@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Don't Destroy On Load. 게임 실행 순서 관리
@@ -16,6 +17,7 @@ public class GameFlowManager : MonoBehaviour
     // 현재 게임이 몇번째인지
     public int game = 0;
 
+    //---------------------------------------------------------------------------
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class GameFlowManager : MonoBehaviour
 
         // 점수 0으로 초기화
         score[0] = 0; score[1] = 0; score[2] = 0; score[3] = 0;
+
     }
 
     // 게임 순서 설정 ----------------------------------------------
@@ -77,4 +80,5 @@ public class GameFlowManager : MonoBehaviour
         else if (gameflow[2] == 2) SceneManager.LoadScene("05_Game2");
         else if (gameflow[2] == 3) SceneManager.LoadScene("06_Game3");
     }
+
 }

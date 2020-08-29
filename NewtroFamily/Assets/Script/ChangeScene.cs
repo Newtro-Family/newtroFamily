@@ -62,6 +62,10 @@ public class ChangeScene : MonoBehaviour
         //result씬으로 이동
         SceneManager.LoadScene("09_GameResult", LoadSceneMode.Additive);
     }
+    public void LoadingScene()
+    {
+        SceneManager.LoadScene("10_Loading", LoadSceneMode.Additive);
+    }
     public void QuitGame()
     {
         Debug.Log("게임종료");
