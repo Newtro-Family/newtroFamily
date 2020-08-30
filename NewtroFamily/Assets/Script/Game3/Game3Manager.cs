@@ -299,6 +299,7 @@ public class Game3Manager : MonoBehaviour
 
     public void Select(int num)
     {
+        SoundManager.Instance.Play_effect(1);  //딱지치는 효과음 내기
         Button option = Btns_option[num - 1];
         Text t_option = Txts_option[num - 1];
         GameObject _option;
