@@ -12,8 +12,9 @@ public class Game3Manager : MonoBehaviour
 
     //UI
     public GameObject player1, player2, player3, player4; //플레이어 점수판 오브젝트
+    public GameObject loading; //로딩 이미지 
 
-    public GameObject go_correct, go_wrong, quiz_status;
+    public GameObject go_correct, go_wrong;
     public GameObject ready_2, ready_3, ready_4;
     public GameObject t_1, t_2, t_3, t_4, t_5, t_6, t_7, t_8;
     public Text t_question, t_count, p1_count, p2_count,p3_count,p4_count; //p(n)_count 해당 플레이어 점수판 텍스트
@@ -29,6 +30,7 @@ public class Game3Manager : MonoBehaviour
     public int p_num = 0;
     StringReader q_stringReader;
     string c_tmp;
+    public int j=0;
 
     //타이머 변수
     public Slider timerSlider;
@@ -52,6 +54,10 @@ public class Game3Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //로딩 이미지 시작 
+        if (j == 0)
+        { StartCoroutine(LoadingScene()); }
+
         //카운트 초기화
         count = 0; //해당 플레이어의 현재 점수 초기화
         //타이머 시작 
@@ -368,7 +374,6 @@ public class Game3Manager : MonoBehaviour
                     }
                 }
 
-                quiz_status.SetActive(true);
                 quiz_num++;
                 StartCoroutine(ReadyDelay());
 
@@ -395,6 +400,17 @@ public class Game3Manager : MonoBehaviour
     }
 
     //코루틴 --------------------------------------------------------------------------------------------
+    IEnumerator LoadingScene()
+    {
+        j++;
+        Time.timeScale = 0;
+        float pauseTime = Time.realtimeSinceStartup + 3.0f;
+        while (Time.realtimeSinceStartup < pauseTime)
+            yield return 0;
+        loading.SetActive(false);
+
+       // Time.timeScale = 1.0f;
+    }
 
     IEnumerator Start_Delay()
     {
@@ -421,7 +437,6 @@ public class Game3Manager : MonoBehaviour
     IEnumerator NextTurn()
     {
         yield return 0;
-        quiz_status.SetActive(false);
     }
 
     IEnumerator Routine_check(bool correct)
@@ -455,8 +470,6 @@ public class Game3Manager : MonoBehaviour
 
     IEnumerator ReadyDelay()
     {
-        quiz_status.SetActive(false);
-
         if (quiz_num == 2)
         {
             ready_2.SetActive(true);

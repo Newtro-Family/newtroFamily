@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/05_Game2.unity
     guid: 2d5c501c876b11848bf2115a5bd63ba8
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/941d5524961e5d340a3c6e473edca6f1
+    path: 
     guid: 941d5524961e5d340a3c6e473edca6f1
   - enabled: 1
     path: Assets/Scenes/06_Game3.unity
@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/09_GameResult.unity
     guid: 52d4382352b562a498931ebd65105636
+  - enabled: 1
+    path: Assets/Scenes/10_Loading.unity
+    guid: ebf2ce411b4f04d4caccbc76afd08256
   m_configObjects: {}
