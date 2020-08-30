@@ -12,8 +12,15 @@ public class GameFlowManager : MonoBehaviour
 
     // 게임순서 저장 배열
     public int[] gameflow = new int[3];
-    // 플레이어별 점수 저장
+    
+    // 플레이어별 총점 저장
     public int[] score = new int[4];
+
+    // 플레이어별 제기차기, 고무신던지기, 딱지뒤집기 점수 저장
+    public int[] score1 = new int[4];
+    public int[] score2 = new int[4];
+    public int[] score3 = new int[4];
+
     // 현재 게임이 몇번째인지
     public int game = 0;
 
@@ -25,6 +32,9 @@ public class GameFlowManager : MonoBehaviour
 
         // 점수 0으로 초기화
         score[0] = 0; score[1] = 0; score[2] = 0; score[3] = 0;
+        score1[0] = 0; score1[1] = 0; score1[2] = 0; score1[3] = 0;
+        score2[0] = 0; score2[1] = 0; score2[2] = 0; score2[3] = 0;
+        score3[0] = 0; score3[1] = 0; score3[2] = 0; score3[3] = 0;
 
     }
 

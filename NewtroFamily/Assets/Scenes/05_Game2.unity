@@ -3025,6 +3025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loading: {fileID: 1801698017}
+  btnNext: {fileID: 354667692}
 --- !u!1 &1801698017
 GameObject:
   m_ObjectHideFlags: 0

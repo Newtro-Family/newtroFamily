@@ -81,18 +81,21 @@ public class Game3Manager : MonoBehaviour
             player3.SetActive(true);
             player4.SetActive(true);
         }
-
-        // 점수 데이터 가져오기
+        
+        
+        // 점수 데이터 가져오기 -> 로그에만 찍는거로 변경
         GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
 
-        p1_count.text = flowM.score[0].ToString();
-        p2_count.text = flowM.score[1].ToString();
-        p3_count.text = flowM.score[2].ToString();
-        p4_count.text = flowM.score[3].ToString();
-
-        Debug.Log("지금까지 점수: " + p1_count.text + " / " + p2_count.text + " / " + p3_count.text + " / " + p4_count.text + " / ");
+        Debug.Log("현재까지 총 점수: 철수(" + flowM.score[0].ToString() + ") / 다혜(" + flowM.score[1].ToString() + ") / 영희("
+            + flowM.score[2].ToString() + ") / 철수(" + flowM.score[3].ToString() + ")");
+        if (p_num == 0)
+        {
+            p1_count.text = "-";
+            p2_count.text = "-";
+            p3_count.text = "-";
+            p4_count.text = "-";
+        }
         
-
         //퀴즈 
         string q_file_name = "quiz" + quiz_num;
 
@@ -193,35 +196,41 @@ public class Game3Manager : MonoBehaviour
                 {
                     // 점수 데이터에 합산
                     flowM.score[0] += count;
+                    flowM.score3[0] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("기영이 딱지점수: " + count + "/ 전체점수: " + flowM.score[0].ToString());
 
-                    p1_count.text = flowM.score[0].ToString();
+                    //p1_count.text = flowM.score[0].ToString();
+                    p1_count.text = count.ToString();
                 }
                 else if (p_num == 2)
                 {
                     // 점수 데이터에 합산
                     flowM.score[1] += count;
+                    flowM.score3[1] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("다혜 딱지점수: " + count + "/ 전체점수: " + flowM.score[1].ToString());
-
-                    p2_count.text = flowM.score[1].ToString();
+                    
+                    p2_count.text = count.ToString();
                 }
                 else if (p_num == 3)
                 {
                     // 점수 데이터에 합산
                     flowM.score[2] += count;
+                    flowM.score3[2] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("영희 딱지점수: " + count + "/ 전체점수: " + flowM.score[2].ToString());
 
-                    p3_count.text = flowM.score[2].ToString();
+                    p3_count.text = count.ToString();
                 }
                 else if (p_num == 4)
                 {
                     // 점수 데이터에 합산
                     flowM.score[3] += count;
+                    flowM.score3[3] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("철수 딱지점수: " + count + "/ 전체점수: " + flowM.score[3].ToString());
 
-                    p4_count.text = flowM.score[3].ToString();
+                    p4_count.text = count.ToString();
                 }
 
+                //count = 0;
                 quiz_num++;
 
                 // Game2로 넘어가기
@@ -265,6 +274,25 @@ public class Game3Manager : MonoBehaviour
         page++;
         wrong_count = 0;
         Reset();
+    }
+
+    void NextGame()
+    {
+        GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
+
+        if (flowM.game == 1)
+        {
+            flowM.StartSecond(); Debug.Log("딱지뒤집기 완료. 두번째 게임: " + flowM.gameflow[1]);
+        }
+        else if (flowM.game == 2)
+        {
+            flowM.StartThird(); Debug.Log("딱지뒤집기 완료. 세번째 게임: " + flowM.gameflow[2]);
+        }
+        else if (flowM.game == 3)
+        {
+            SceneManager.LoadScene("09_GameResult");
+            Debug.Log("딱지뒤집기 완료. 결과 화면으로");
+        }
     }
 
     void SetQuiz()
@@ -330,49 +358,41 @@ public class Game3Manager : MonoBehaviour
                 {
                     // 점수 데이터에 합산
                     flowM.score[0] += count;
+                    flowM.score3[0] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("기영이 딱지점수: " + count + "/ 전체점수: " + flowM.score[0].ToString());
 
-                    p1_count.text = flowM.score[0].ToString();
+                    p1_count.text = count.ToString();
                 }
                 else if (p_num == 2)
                 {
                     // 점수 데이터에 합산
                     flowM.score[1] += count;
+                    flowM.score3[1] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("다혜 딱지점수: " + count + "/ 전체점수: " + flowM.score[1].ToString());
 
-                    p2_count.text = flowM.score[1].ToString();
+                    p2_count.text = count.ToString();
                 }
                 else if (p_num == 3)
                 {
                     // 점수 데이터에 합산
                     flowM.score[2] += count;
+                    flowM.score3[2] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("영희 딱지점수: " + count + "/ 전체점수: " + flowM.score[2].ToString());
 
-                    p3_count.text = flowM.score[2].ToString();
+                    p3_count.text = count.ToString();
                 }
                 else if (p_num ==4)
                 {
                     // 점수 데이터에 합산
                     flowM.score[3] += count;
+                    flowM.score3[3] = count;    // 딱지뒤집기 점수 저장
                     Debug.Log("철수 딱지점수: " + count + "/ 전체점수: " + flowM.score[3].ToString());
 
-                    p4_count.text = flowM.score[3].ToString();
+                    p4_count.text = count.ToString();
 
                     Debug.Log("다음 게임");
-
-                    if (flowM.game == 1)
-                    {
-                        flowM.StartSecond(); Debug.Log("딱지뒤집기 완료. 두번째 게임: " + flowM.gameflow[1]);
-                    }
-                    else if (flowM.game == 2)
-                    {
-                        flowM.StartThird(); Debug.Log("딱지뒤집기 완료. 세번째 게임: " + flowM.gameflow[2]);
-                    }
-                    else if (flowM.game == 3)
-                    {
-                        SceneManager.LoadScene("09_GameResult");
-                        Debug.Log("딱지뒤집기 완료. 결과 화면으로");
-                    }
+                    Invoke("NextGame", 2f); //딜레이오류
+                    
                 }
 
                 quiz_num++;
@@ -399,6 +419,7 @@ public class Game3Manager : MonoBehaviour
             
         }
     }
+
 
     //코루틴 --------------------------------------------------------------------------------------------
     IEnumerator LoadingScene()
