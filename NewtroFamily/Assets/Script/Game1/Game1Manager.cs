@@ -13,6 +13,8 @@ public class Game1Manager : MonoBehaviour
 
     public GameObject ball; // 제기
     public Rigidbody2D rigidBall;   // 제기 rigidBody
+    public GameObject loading; // 로딩 이미지 
+    public int j = 0; // 로딩 이미지 위한 변수 
 
     // 점수 관리 -> 추후에 코드 깔끔하게 바꾸기(지금 숫자가 아니라 텍스트로 가져옴..)
     public Text currentGoal;    // 현재점수
@@ -24,6 +26,10 @@ public class Game1Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(j==0)
+        {
+            StartCoroutine(LoadingScene());
+        }
         // 플레이어 점수판 리스트에 점수판 오브젝트 추가
         PlayerList.Add(player1);
         PlayerList.Add(player2);
@@ -135,6 +141,17 @@ public class Game1Manager : MonoBehaviour
         }
     }
 
+    //------------------------------------코루틴---------------------------
+    //로딩 이미지 3초 나왔다 사라지기 
+   IEnumerator LoadingScene()
+    {
+        j++;
+        Time.timeScale = 0;
+        float pauseTime = Time.realtimeSinceStartup + 3.0f;
+        while (Time.realtimeSinceStartup < pauseTime)
+            yield return 0;
+        loading.SetActive(false);
+    }
 
     // 카운트다운 코루틴
     IEnumerator ReadyDelay()

@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Game_bgm: {fileID: 52548446}
   Game_effect: {fileID: 52548446}
-  bgm_main: {fileID: 8300000, guid: a6cfbe2642f97b64f921b784ab00ffb4, type: 3}
-  effect1: {fileID: 8300000, guid: b9ed4a30c97abf3439d36904aa3ae13f, type: 3}
+  bgm_main: {fileID: 8300000, guid: 9a614f516e890d9458c44659c9b886ba, type: 3}
+  effect1: {fileID: 8300000, guid: 6e021d807e8d57e4d9ea2ad86442145f, type: 3}
 --- !u!82 &52548445
 AudioSource:
   m_ObjectHideFlags: 0
@@ -183,8 +183,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 6e021d807e8d57e4d9ea2ad86442145f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -279,7 +279,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6cfbe2642f97b64f921b784ab00ffb4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9a614f516e890d9458c44659c9b886ba, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
