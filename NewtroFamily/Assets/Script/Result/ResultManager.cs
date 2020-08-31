@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class ResultManager : MonoBehaviour
     public GameObject Second1, Second2, Second3, Second4;   // 2등
     public GameObject Third1, Third2, Third3, Third4;   // 3등
     public GameObject Fourth1, Fourth2, Fourth3, Fourth4;   // 4등
+
+    // 점수표
+    public Text txtSumKY, txtSumDH, txtSumYH, txtSumCS,         // 총점
+                txtGame1KY, txtGame1DH, txtGame1YH, txtGame1CS, // 제기차기
+                txtGame2KY, txtGame2DH, txtGame2YH, txtGame2CS, // 고무신던지기
+                txtGame3KY, txtGame3DH, txtGame3YH, txtGame3CS; // 딱지치기
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +34,27 @@ public class ResultManager : MonoBehaviour
         Debug.Log("최종 점수: " + flowM.score[0].ToString() + " / " + flowM.score[1].ToString()
             + " / " + flowM.score[2].ToString() + " / " + flowM.score[3].ToString() + " / ");
 
-        Sort();
+        // 표에 총점 표시
+        txtSumKY.text = flowM.score[0].ToString();
+        txtSumDH.text = flowM.score[1].ToString();
+        txtSumYH.text = flowM.score[2].ToString();
+        txtSumCS.text = flowM.score[3].ToString();
+
+        // 표에 제기차기 점수 표시
+        txtGame1KY.text = flowM.score1[0].ToString();
+        txtGame1DH.text = flowM.score1[1].ToString();
+        txtGame1YH.text = flowM.score1[2].ToString();
+        txtGame1CS.text = flowM.score1[3].ToString();
+
+        // 표에 고무신던지기 점수 표시 -> X
+
+        // 표에 딱지뒤집기 점수 표시
+        txtGame3KY.text = flowM.score3[0].ToString();
+        txtGame3DH.text = flowM.score3[1].ToString();
+        txtGame3YH.text = flowM.score3[2].ToString();
+        txtGame3CS.text = flowM.score3[3].ToString();
+
+        Sort(); //지워도될듯(테스트안해봄)
     }
 
     // 크기 순서

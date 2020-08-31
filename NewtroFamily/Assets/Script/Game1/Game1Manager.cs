@@ -13,6 +13,8 @@ public class Game1Manager : MonoBehaviour
 
     public GameObject ball; // 제기
     public Rigidbody2D rigidBall;   // 제기 rigidBody
+    public GameObject loading; // 로딩 이미지 
+    public int j = 0; // 로딩 이미지 위한 변수 
 
     // 점수 관리 -> 추후에 코드 깔끔하게 바꾸기(지금 숫자가 아니라 텍스트로 가져옴..)
     public Text currentGoal;    // 현재점수
@@ -21,9 +23,14 @@ public class Game1Manager : MonoBehaviour
 
     public GameObject ready_1, ready_2, ready_3, ready_4; //플레이어 레디 오브젝트
 
+
     // Start is called before the first frame update
     void Start()
     {
+        if(j==0)
+        {
+            StartCoroutine(LoadingScene());
+        }
         // 플레이어 점수판 리스트에 점수판 오브젝트 추가
         PlayerList.Add(player1);
         PlayerList.Add(player2);
@@ -42,13 +49,25 @@ public class Game1Manager : MonoBehaviour
         PlayerList[2].SetActive(false);
         PlayerList[3].SetActive(false);*/
 
-        // 점수 데이터 가져오기
+        // 점수 데이터 가져오기 -> 로그에만 찍는거로 변경
         GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
 
+        Debug.Log("현재까지 총 점수: 철수(" + flowM.score[0].ToString() + ") / 다혜(" + flowM.score[1].ToString() + ") / 영희("
+            + flowM.score[2].ToString() + ") / 철수(" + flowM.score[3].ToString() + ")");
+        if (pm == 0)
+        {
+            GoalList[0].text = "-";
+            GoalList[1].text = "-";
+            GoalList[2].text = "-";
+            GoalList[3].text = "-";
+        }
+        
+        /*
         GoalList[0].text = flowM.score[0].ToString();
         GoalList[1].text = flowM.score[1].ToString();
         GoalList[2].text = flowM.score[2].ToString();
         GoalList[3].text = flowM.score[3].ToString();
+        */
     }
 
     // Update is called once per frame
@@ -66,11 +85,13 @@ public class Game1Manager : MonoBehaviour
 
         // 점수 데이터 저장
         GameFlowManager flowM = GameObject.Find("GameFlow").GetComponent<GameFlowManager>();
-        flowM.score[pm] += numGoal.numGoal;
+        flowM.score[pm] += numGoal.numGoal; // 총 점수 저장
+        flowM.score1[pm] = numGoal.numGoal; // 제기 점수 저장
         Debug.Log(pm + 1 + "번째 플레이어의 제기 점수: " + numGoal.numGoal + "/ 총 점수: " + flowM.score[pm].ToString());
-        
-        // 현재 게임 씬에서 점수 반영
-        GoalList[pm].text = flowM.score[pm].ToString();
+
+        // 현재 게임 씬에서 점수 반영 -> 현재점수로
+        //GoalList[pm].text = flowM.score[pm].ToString();
+        GoalList[pm].text = numGoal.numGoal.ToString();
 
         numGoal.numGoal = 0;    //현재점수 초기화
 
@@ -81,6 +102,9 @@ public class Game1Manager : MonoBehaviour
         //if (pm == 3) pm = 0;
         //else pm++;
         pm++;
+
+        // 중력 초기화
+        rigidBall.gravityScale = 50;
 
         // 4명 모두 한 경우에는 다음 플로우로
         if (pm == 4)
@@ -122,6 +146,17 @@ public class Game1Manager : MonoBehaviour
         }
     }
 
+    //------------------------------------코루틴---------------------------
+    //로딩 이미지 3초 나왔다 사라지기 
+   IEnumerator LoadingScene()
+    {
+        j++;
+        Time.timeScale = 0;
+        float pauseTime = Time.realtimeSinceStartup + 3.0f;
+        while (Time.realtimeSinceStartup < pauseTime)
+            yield return 0;
+        loading.SetActive(false);
+    }
 
     // 카운트다운 코루틴
     IEnumerator ReadyDelay()

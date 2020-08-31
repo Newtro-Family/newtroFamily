@@ -38,8 +38,8 @@ public class Bounce : MonoBehaviour
 
             // TODO: 난이도 레벨링
             // bounce에서 gravity 조정하는 코드(점점 빨라지게)
-            rigidBall.gravityScale *= 1.03f;
-            //Debug.Log("중력 크기: " + rigidBall.gravityScale);
+            rigidBall.gravityScale *= 1.07f;
+            Debug.Log("중력 크기: " + rigidBall.gravityScale);
 
             // 제기 크기 랜덤으로 조절 -> x축의 역할
             //RandomBallSize();
@@ -47,8 +47,11 @@ public class Bounce : MonoBehaviour
             //Debug.Log(col.relativeVelocity + "/" + rigidBall.velocity);
             rigidBall.AddForce(transform.forward * force);
 
+            //제기차는 효과음 내기
+            SoundManager.Instance.Play_effect(2);  //제기차는 효과음 내기
             // 점수
             numGoal++;
+
         }
     }
 
