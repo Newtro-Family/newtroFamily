@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
 
     //할당 받을 오디오 관련 컴포넌트 및 리소스
     public AudioSource Game_bgm, Game_effect;
-    public AudioClip bgm_main, effect1;
+    public AudioClip bgm_main, effect1, effect2;
 
     public object Value_BGM { get; internal set; }
     public object Value_Effect { get; internal set; }
@@ -46,6 +46,8 @@ public class SoundManager : MonoBehaviour
     {
         if (num.Equals(1))
             Game_effect.PlayOneShot(effect1);
+        else if (num.Equals(2))
+            Game_effect.PlayOneShot(effect2);
 
     }
 

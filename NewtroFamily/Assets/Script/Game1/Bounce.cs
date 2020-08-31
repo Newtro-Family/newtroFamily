@@ -47,8 +47,11 @@ public class Bounce : MonoBehaviour
             //Debug.Log(col.relativeVelocity + "/" + rigidBall.velocity);
             rigidBall.AddForce(transform.forward * force);
 
+            //제기차는 효과음 내기
+            SoundManager.Instance.Play_effect(2);  //제기차는 효과음 내기
             // 점수
             numGoal++;
+
         }
     }
 
