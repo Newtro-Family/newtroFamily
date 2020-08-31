@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 61471532}
   - component: {fileID: 61471536}
   - component: {fileID: 61471534}
+  - component: {fileID: 61471535}
   m_Layer: 5
   m_Name: Player1
   m_TagString: Untagged
@@ -238,7 +239,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.88}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -250,10 +251,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 13.05363, y: -24.17182}
-      - {x: 3.3762412, y: -14.669256}
-      - {x: -3.5810142, y: -14.484218}
-      - {x: -12.15206, y: -23.680761}
+    - - {x: 22.014202, y: -24.669622}
+      - {x: 5.3674927, y: -16.660498}
+      - {x: -2.0875854, y: -16.475449}
+      - {x: -25.344015, y: -24.925287}
+--- !u!114 &61471535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61471530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34103d8efd2a6d49bb1b37bf3959cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 61471530}
+  ball: {fileID: 1984342772}
+  imgNormalL: {fileID: 21300000, guid: ba2349dbf12a51e458c4cdc9462bcc91, type: 3}
+  imgKickingL: {fileID: 21300000, guid: 42394ddb02b11394595b381fa10cf736, type: 3}
+  imgNormalR: {fileID: 21300000, guid: 11a9df952cc7361408e87753c40335bc, type: 3}
+  imgKickingR: {fileID: 21300000, guid: 1c7434e9657177d4da8bfe0856433487, type: 3}
 --- !u!114 &61471536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +575,7 @@ GameObject:
   - component: {fileID: 409757710}
   - component: {fileID: 409757709}
   - component: {fileID: 409757708}
+  - component: {fileID: 409757712}
   m_Layer: 5
   m_Name: Player2
   m_TagString: Untagged
@@ -595,7 +615,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.88}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -607,10 +627,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 13.05363, y: -24.17182}
-      - {x: 3.3762412, y: -14.669256}
-      - {x: -3.5810142, y: -14.484218}
-      - {x: -12.15206, y: -23.680761}
+    - - {x: 24.254395, y: -42.59081}
+      - {x: 7.8565474, y: -34.830585}
+      - {x: -4.0787964, y: -35.39226}
+      - {x: -21.859375, y: -44.090992}
 --- !u!114 &409757709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +679,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409757706}
   m_CullTransparentMesh: 0
+--- !u!114 &409757712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409757706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34103d8efd2a6d49bb1b37bf3959cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 409757706}
+  ball: {fileID: 1984342772}
+  imgNormalL: {fileID: 21300000, guid: a76db57d5bc16db44a06db3af0b92cd9, type: 3}
+  imgKickingL: {fileID: 21300000, guid: d0a38ea46e860f64196e077b9309976f, type: 3}
+  imgNormalR: {fileID: 21300000, guid: e0867b8700434aa47a4220b3ff51c46b, type: 3}
+  imgKickingR: {fileID: 21300000, guid: e26b6d410b8a17848a3de7661b05716d, type: 3}
 --- !u!1 &472116919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1446,7 @@ GameObject:
   - component: {fileID: 801280071}
   - component: {fileID: 801280070}
   - component: {fileID: 801280069}
+  - component: {fileID: 801280073}
   m_Layer: 5
   m_Name: Player3
   m_TagString: Untagged
@@ -1447,7 +1486,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.88}
+  m_Offset: {x: 0, y: -12.52}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1459,10 +1498,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 13.05363, y: -24.17182}
-      - {x: 3.3762412, y: -14.669256}
-      - {x: -3.5810142, y: -14.484218}
-      - {x: -12.15206, y: -23.680761}
+    - - {x: 13.05363, y: -23.674011}
+      - {x: 4.1229453, y: -17.656124}
+      - {x: -3.0832114, y: -17.71999}
+      - {x: -9.165202, y: -23.18296}
 --- !u!114 &801280070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,6 +1550,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801280067}
   m_CullTransparentMesh: 0
+--- !u!114 &801280073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801280067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34103d8efd2a6d49bb1b37bf3959cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 801280067}
+  ball: {fileID: 1984342772}
+  imgNormalL: {fileID: 21300000, guid: c987b69556dc5c6488f2ff022f1b981c, type: 3}
+  imgKickingL: {fileID: 21300000, guid: ae55c63f984adb244a85ec68bcd4130a, type: 3}
+  imgNormalR: {fileID: 21300000, guid: 02efbe1155c6e304da72d098b372e0cc, type: 3}
+  imgKickingR: {fileID: 21300000, guid: f5ed3a888a473ca4e948e5bbf9b9d1ad, type: 3}
 --- !u!1 &939180962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2956,7 @@ GameObject:
   - component: {fileID: 1780280420}
   - component: {fileID: 1780280419}
   - component: {fileID: 1780280418}
+  - component: {fileID: 1780280422}
   m_Layer: 5
   m_Name: Player4
   m_TagString: Untagged
@@ -2938,7 +2996,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.88}
+  m_Offset: {x: 0, y: 0.71}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2950,10 +3008,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 13.05363, y: -24.17182}
-      - {x: 3.3762412, y: -14.669256}
-      - {x: -3.5810142, y: -14.484218}
-      - {x: -12.15206, y: -23.680761}
+    - - {x: 17.782837, y: -24.42073}
+      - {x: 3.874044, y: -16.162683}
+      - {x: -6.3189697, y: -15.977656}
+      - {x: -19.3703, y: -24.178574}
 --- !u!114 &1780280419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3002,6 +3060,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780280416}
   m_CullTransparentMesh: 0
+--- !u!114 &1780280422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780280416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34103d8efd2a6d49bb1b37bf3959cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1780280416}
+  ball: {fileID: 1984342772}
+  imgNormalL: {fileID: 21300000, guid: d685a53e9b48cc147a7bf2ae33bd8c7c, type: 3}
+  imgKickingL: {fileID: 21300000, guid: e43abebb8422dc84384cf44ddb09f74e, type: 3}
+  imgNormalR: {fileID: 21300000, guid: c72ab5be5ac796449a0f1a0bd537be62, type: 3}
+  imgKickingR: {fileID: 21300000, guid: 77a0ce1e8fb5b074e84ecdc8c7a9d791, type: 3}
 --- !u!1 &1780682079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1819139579
 MonoBehaviour:
   m_ObjectHideFlags: 0

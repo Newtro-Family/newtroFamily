@@ -23,6 +23,7 @@ public class Game1Manager : MonoBehaviour
 
     public GameObject ready_1, ready_2, ready_3, ready_4; //플레이어 레디 오브젝트
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,6 +102,9 @@ public class Game1Manager : MonoBehaviour
         //if (pm == 3) pm = 0;
         //else pm++;
         pm++;
+
+        // 중력 초기화
+        rigidBall.gravityScale = 50;
 
         // 4명 모두 한 경우에는 다음 플로우로
         if (pm == 4)
