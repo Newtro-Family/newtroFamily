@@ -11,8 +11,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance = null;
 
     //할당 받을 오디오 관련 컴포넌트 및 리소스
-    public AudioSource Game_bgm,Game_effect;
-    public AudioClip bgm_main,effect1;
+    public AudioSource Game_bgm, Game_effect;
+    public AudioClip bgm_main, effect1, effect2;
 
     public object Value_BGM { get; internal set; }
     public object Value_Effect { get; internal set; }
@@ -42,22 +42,15 @@ public class SoundManager : MonoBehaviour
     }
 
     //Effect 선택 play
-/*
-    //Game 끝내고 소리 재설정
-    public void BGM_reset()
+    public void Play_effect(int num)
     {
-        BGM_change(false);
-        Game_bgm.volume = PlayerPrefs.GetFloat("tmp_bgm", 1f);
+        if (num.Equals(1))
+            Game_effect.PlayOneShot(effect1);
+        else if (num.Equals(2))
+            Game_effect.PlayOneShot(effect2);
+
     }
 
-    
-    public void BGM_change(bool isGame)
-    {
-        if (isGame)
-             = bgm_main;
-        else
-            
-    }*/
 
     //BGM 소리 크기 설정
     public void SetBGM_Volume(float v)
