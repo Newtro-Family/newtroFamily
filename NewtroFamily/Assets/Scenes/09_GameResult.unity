@@ -405,7 +405,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -958,7 +958,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1318,7 +1318,7 @@ Transform:
   - {fileID: 1729631776}
   - {fileID: 1762305880}
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468473888
 GameObject:
@@ -2805,6 +2805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ticket: {fileID: 323341154}
+  txtScoreGroup: {fileID: 0}
+  txtGuide: {fileID: 0}
 --- !u!1 &975962334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,12 +3365,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1181861506}
+  - {fileID: 449022649}
+  - {fileID: 1409846296}
   - {fileID: 1305486166}
   - {fileID: 1161735552}
   - {fileID: 173448571}
   - {fileID: 330022420}
-  - {fileID: 1409846296}
-  - {fileID: 449022649}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3457,7 +3459,7 @@ RectTransform:
   - {fileID: 2016223635}
   - {fileID: 1863915139}
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3686,6 +3688,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ticket: {fileID: 982606455}
+  txtScoreGroup: {fileID: 0}
+  txtGuide: {fileID: 0}
 --- !u!1 &1181861505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,7 +4325,7 @@ RectTransform:
   - {fileID: 60243661}
   - {fileID: 1258919230}
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4507,7 +4511,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1149194690}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4692,6 +4696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ticket: {fileID: 1247456441}
+  txtScoreGroup: {fileID: 0}
+  txtGuide: {fileID: 0}
 --- !u!1 &1475773627
 GameObject:
   m_ObjectHideFlags: 0
@@ -6380,6 +6386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ticket: {fileID: 2025846638}
+  txtScoreGroup: {fileID: 0}
+  txtGuide: {fileID: 0}
 --- !u!1 &2094533429
 GameObject:
   m_ObjectHideFlags: 0
